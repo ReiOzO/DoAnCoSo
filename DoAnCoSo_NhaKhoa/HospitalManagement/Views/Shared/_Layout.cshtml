@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Patient Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <link href="~/Content/theme/img/icon.png" rel="icon">
+
+    <link rel="stylesheet" href="~/Content/theme/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/Content/theme/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/Content/theme/plugins/fontawesome/css/all.min.css">
+
+    <link href="~/Content/alertify/alertify.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Content/theme/css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css">
+
+    <link href="~/Content/plugin/notifyjs/lobibox.min.css" rel="stylesheet" />
+    @RenderSection("CSS", required: false)
+    <!--[if lt IE 9]>
+                <script src="~/Content/theme/js/html5shiv.min.js"></script>
+                <script src="~/Content/theme/js/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+
+        .Scroll-up {
+            font-size: 30px;
+            color: #03a9f4;
+            background-color: #f8f8f8;
+            width: 45px;
+            height: 45px;
+            text-align: center;
+            border-radius: 50px;
+            position: fixed;
+            right: 20px;
+            bottom: 10px;
+            z-index: 9999;
+            cursor: pointer;
+            border: 2px solid #03a9f4;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Header -->
+        @Html.Partial("_PartialHeader")
+
+        <!-- Start main-content -->
+
+        @RenderBody()
+
+        <div class="clearfix"></div>
+        <!-- Footer -->
+        @Html.Partial("_PartialFooter")
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Đặt lịch</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close" data-original-title="" title=""><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="booking-doc-info">
+                                <a href="" class="booking-doc-img link-to-detail-doctor">
+                                    <img src="" id="ImgAvt" alt="User Image">
+                                </a>
+                                <div class="booking-info">
+                                    <p class="text-muted mb-0"><i class="fas fa-map-marker-alt"></i> <span id="doctor-address"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="form-book-doctor">
+                        <div class="form-group">
+                            <input type="hidden" value="" id="doctor-id" name="doctorId" />
+                            <input type="hidden" value="" id="selected-time" name="time" />
+                            <label class="col-form-label">Chọn thời gian:</label>
+                            <div id="time-buttons" class="container">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="08:00">08:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="08:30">08:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="09:00">09:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="09:30">09:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="10:00">10:00</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="10:30">10:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="11:00">11:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="11:30">11:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="12:00">12:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="12:30">12:30</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="13:00">13:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="13:30">13:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="14:00">14:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="14:30">14:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="15:00">15:00</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="15:30">15:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="16:00">16:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="16:30">16:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="17:00">17:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="17:30">17:30</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="18:00">18:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="18:30">18:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="19:00">19:00</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="19:30">19:30</button>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-primary time-button" data-time="20:00">20:00</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal" data-original-title="" title="">Close</button>
+                    <button class="btn btn-primary" type="button" data-original-title="" onclick="saveBooking()" title="">Đăng ký ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Start Button Scroll UP -->
+    <div class="Scroll-up">
+        <i class="fa fa-stethoscope" aria-hidden="true"></i>
+    </div>
+    <script src="~/Content/theme/js/jquery.min.js"></script>
+    <script src="~/Content/theme/js/jquery.min.js"></script>
+
+    <script src="~/Content/theme/js/popper.min.js"></script>
+    <script src="~/Content/theme/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/plugin/notifyjs/lobibox.min.js"></script>
+
+    <script src="~/Scripts/js/base/common.js"></script>
+
+    <script src="~/Areas/Admin/Content/js/base/ajax.js"></script>
+
+    <script src="~/Scripts/alertify.min.js"></script>
+    @RenderSection("Scripts", required: false)
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Xử lý sự kiện click cho các nút thời gian
+            $(".time-button").on("click", function () {
+                $(".time-button").removeClass("btn-primary").addClass("btn-outline-primary"); // Bỏ chọn tất cả các nút
+                $(this).removeClass("btn-outline-primary").addClass("btn-primary"); // Chọn nút hiện tại
+                const selectedTime = $(this).data("time");
+                const today = new Date().toISOString().split('T')[0]; // Lấy ngày hôm nay
+                $("#selected-time").val(`${today}T${selectedTime}`);
+            });
+        });
+
+        /*$(document).ready(function () {
+            // Lấy ngày và giờ hiện tại
+            var now = new Date();
+            var currentHour = now.getHours();
+            var currentMinute = now.getMinutes();
+
+            // Nếu thời gian hiện tại là sau 20 giờ hoặc trước 8 giờ sáng, đặt giờ mặc định là 8 giờ sáng
+            if (currentHour >= 20 || currentHour < 8) {
+                currentHour = 8;
+                currentMinute = 0;
+            }
+
+            // Giới hạn giờ chỉ từ 8 giờ sáng đến 20 giờ tối
+            var selectedHour = Math.max(8, Math.min(20, currentHour));
+
+            // Giới hạn phút chia hết cho 5 gần nhất
+            var selectedMinute = Math.floor(currentMinute / 5) * 5;
+
+            // Format lại thời gian theo dạng "yyyy-MM-ddTHH:mm" để đặt giá trị cho input
+            var formattedHour = selectedHour.toString().padStart(2, '0');
+            var formattedMinute = selectedMinute.toString().padStart(2, '0');
+            var formattedTime = `${now.getFullYear()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')}T${formattedHour}:${formattedMinute}`;
+
+            // Đặt giá trị cho input thời gian
+            $("input[name='time']").val(formattedTime);
+        });*/
+
+        var scrollButton = $(".Scroll-up");
+        $(window).on("scroll", function () {
+            if ($(this).scrollTop() >= 500) {
+                scrollButton.show();
+            } else {
+                scrollButton.hide();
+            }
+        });
+        scrollButton.on("click",
+            function () {
+                $("html,body").animate({
+                    scrollTop: 0
+                },
+                    1e3);
+            });
+
+        function getDataDoctor(doctorId) {
+
+            ajax.get(`/doctor/getJson`,
+                { id: doctorId },
+                (response) => {
+                    if (response.status) {
+                        const obj = response.data;
+                        if (obj) {
+                            $("#ImgAvt").attr("src", obj.Avatar);
+                            $(".link-to-detail-doctor").attr("href", `/doctor/detail?id=${obj.Id}`);
+                            $("#doctor-name").text(obj.Name);
+                            $("#doctor-id").val(obj.Id);
+                            $("#doctor-address").text(obj.Address);
+                            $("#exampleModal").modal('show');
+                        }
+                    }
+                },
+                (jqXhr, textStatus) => {
+                    const mess = `Request failed: ${textStatus}`;
+                    Lobibox.alert("error", {
+                        msg: "Vui lòng đăng nhập"
+                    });
+                }
+            );
+        }
+
+        function bookNow(doctorId) {
+            getDataDoctor(doctorId);
+        }
+
+        function saveBooking() {
+
+            var formData = new FormData(document.getElementById('form-book-doctor'));
+            ajax.createOrUpdate(`/doctor/book`,
+                formData,
+                (response) => {
+                    if (response.status) {
+                        Lobibox.alert("success", {
+                            msg: response.mess
+                        });
+
+                    } else {
+                        Lobibox.alert("error", {
+                            msg: response.mess
+                        });
+                    }
+                },
+                (jqXhr, textStatus) => {
+                    const mess = `Request failed: ${textStatus}`;
+                    Lobibox.alert("error", {
+                        msg: mess
+                    });
+                }
+            );
+        }
+
+        /*function sendSuccessEmail(formData) {
+            // Lấy thông tin cần thiết từ form
+            var doctorName = $("#doctor-name").text();
+            var bookingTime = $("input[name='time']").val();
+            var userEmail = formData.get('email');
+
+            // Lấy tên khách hàng từ session hoặc cookie
+            var userName = getSessionCookieValue("userName");
+
+            // Tạo nội dung email
+            var emailSubject = "Nha Khoa Kim - Xác nhận đặt lịch thành công";
+            var emailContent = "Chào mừng " + userName + " đã đặt lịch thành công với bác sĩ " + doctorName + " vào lúc " + bookingTime + ". Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.";
+
+            // Gửi email
+            $.ajax({
+                type: "POST",
+                url: "/SendSuccessEmail", // Đường dẫn đến phương thức xử lý gửi email trên server
+                data: {
+                    emailTo: userEmail,
+                    subject: emailSubject,
+                    content: emailContent
+                },
+                success: function (response) {
+                    // Xử lý kết quả trả về từ server (nếu cần)
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi nếu gặp phải
+                }
+            });
+        }*/
+
+        function getSessionCookieValue(cookieName) {
+            // Lấy giá trị của cookie từ session hoặc cookie
+            var value = "";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.indexOf(cookieName) === 0) {
+                    value = cookie.substring(cookieName.length + 1);
+                    break;
+                }
+            }
+            return decodeURIComponent(value);
+        }
+
+    </script>
+</body>
+</html>

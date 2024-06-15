@@ -1,0 +1,278 @@
+﻿@using BELibrary.Entity
+@{
+    var doctors = (List<Doctor>)ViewBag.Doctors ?? new List<Doctor>();
+    var latestPosts = (List<Article>)ViewBag.LatestPosts ?? new List<Article>();
+
+}
+
+<section>
+    <div class="header-carousel owl-carousel">
+        <div class="header-carousel-item d-grid place-items-center">
+            <img src="~/Content/theme/img/banner-2.jpg" class="img-fluid w-100" alt="Image">
+            <div class="carousel-caption text-center">
+                <div class="carousel-caption-content p-3">
+                    @*<h1>Nha Khoa Kim mong muốn đem lại dịch vụ tốt nhất cho bạn</h1>
+                    <p>Tìm kiếm bác sĩ và đặt lịch hẹn</p>*@
+                </div>
+                <div class="search-box">
+                    <form action="/doctor/search" method="post">
+                        <div class="form-group search-info">
+                            <input type="text" class="form-control" placeholder="" name="query">
+                        </div>
+                        <button type="submit" class="btn btn-primary search-btn mt-0"><i class="fas fa-search"></i> <span>Search</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--  -->
+<div class="container-fluid about bg-light py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="about-img pb-5 ps-5">
+                    <iframe width="450" height="471" src="https://www.youtube.com/embed/GUb8uUZUh5A" title="NHA KHOA KIM - HỆ THỐNG NHA KHOA UY TÍN ĐẠT CHỨNG NHẬN QUỐC TẾ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                </div>
+            </div>
+            <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
+                <div class="section-title text-start mb-5">
+                    <h2 class="display-3 mb-4">Về Nha Khoa Kim</h2>
+                    <p class="mb-4">Nha Khoa Kim - Hệ thống nha khoa uy tín Việt Nam với hơn 30 phòng khám trải dài khắp 6 tỉnh thành trên toàn quốc.</p>
+                    <div class="mb-4">
+                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Chứng nhận chất lượng ISO 9001:2015 Vương Quốc Anh.</p>
+                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Đạt chứng nhận GCR Hoa Kỳ.</p>
+                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Được chính phủ Singapore đầu tư tài chính.</p>
+                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Đối tác toàn cầu của đại học Harvard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  -->
+<!-- Difference Start -->
+<div class="container">
+    <div class="text-center">
+        <h1 class="text-dark mb-5">Sự Khác Biệt ở <span class="break-line">NHA KHOA KIM</span></h1>
+        <div class="fl-html">
+            <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="row">
+        <article class="col-md-4 col-sm-4 col-lg-4 transition-3d-hover">
+            <div class="card border-0">
+                <a title="Yêu cầu cho tham quan phòng tiệt trùng nha khoa trước khi quyết định điều trị" href="https://nhakhoakim.com/healthcare-ecosystem/yeu-cau-cho-tham-quan-phong-tiet-trung-truoc-khi-quyet-dinh-dieu-tri-nha-khoa">
+                    <img width="350" height="197" class="card-img img-fluid lazy-load" src="https://nhakhoakim.com/wp-content/uploads/2024/03/Thumb-Phong-tiet-khuan-02-scaled-555x312.jpg" data-src="https://nhakhoakim.com/wp-content/uploads/2024/03/Thumb-Phong-tiet-khuan-02-scaled-555x312.jpg" alt="Yêu cầu cho tham quan phòng tiệt trùng nha khoa trước khi quyết định điều trị" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                    <h6 class="h6 py-2 card-text-dark">Yêu cầu cho tham quan phòng tiệt trùng nha khoa trước khi quyết định điều trị</h6>
+                </a>
+            </div>
+        </article>
+        <article class="col-md-4 col-sm-4 col-lg-4 transition-3d-hover col-6 col-index-1">
+            <div class="card border-0">
+                <a title="4 khác biệt tạo nên Nha Khoa Kim uy tín" href="https://nhakhoakim.com/healthcare-ecosystem/nha-khoa-kim-chuan-quoc-te-moi-khach-hang-la-mot-phong-dieu-tri-rieng-biet">
+                    <img width="350" height="197" class="card-img img-fluid lazy-load" src="https://nhakhoakim.com/wp-content/uploads/2023/09/NKK_thumb-web-4-khac-biet-04-555x312.jpg" data-src="https://nhakhoakim.com/wp-content/uploads/2023/09/NKK_thumb-web-4-khac-biet-04-555x312.jpg" alt="4 khác biệt tạo nên Nha Khoa Kim uy tín" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                    <h6 class="h6 py-2 card-text-dark">4 khác biệt tạo nên Nha Khoa Kim uy tín</h6>
+                </a>
+            </div>
+        </article>
+        <article class="col-md-4 col-sm-4 col-lg-4 transition-3d-hover col-6 col-index-2">
+            <div class="card border-0">
+                <a title="Những thành tựu Nha Khoa Kim" href="https://nhakhoakim.com/healthcare-ecosystem/nhung-thanh-tuu-nha-khoa-kim-dat-duoc">
+                    <img width="350" height="197" class="card-img img-fluid lazy-load" src="https://nhakhoakim.com/wp-content/uploads/2021/12/BannerBS-6x-update-04.10.21-scaled-555x312.jpg" data-src="https://nhakhoakim.com/wp-content/uploads/2021/12/BannerBS-6x-update-04.10.21-scaled-555x312.jpg" alt="Những thành tựu Nha Khoa Kim" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                    <h6 class="h6 py-2 card-text-dark">Những thành tựu Nha Khoa Kim</h6>
+                </a>
+            </div>
+        </article>
+    </div>
+</div>
+<!-- Difference End -->
+<!-- Customer comments Start -->
+<<div class="container">
+    <div class="text-center">
+        <h1 class="text-dark mb-5">Cảm nhận của khách hàng</h1>
+        <div class="fl-html">
+            <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="row pt-3 mb-3 bg-light" style="border:1px solid #f9f9f9 !important;box-shadow:0px 10px 24px 6px rgb(0 0 0 / 6%);">
+        <article class="mb-2 p-1 transition-3d-hover col-md-3 col-sm-6 col-lg-3 col-6">
+            <a class="p-0 u-media-player" title="[Short] Video Khách hàng Thái Nguyên" href="javascript:void(0)" onclick="return changeVideoRepresent(this,'shorts/GDl1AcK4Lrs','[Short] Video Khách hàng Thái Nguyên')">
+                <div class="p-0">
+                    <img class="card-img img-fluid lazy-load" width="54" height="96" src="https://nhakhoakim.com/wp-content/uploads/2024/05/YoutubeShort-FN-new_thai-nguyen-01.jpg" alt="[Short] Video Khách hàng Thái Nguyên" data-src="https://nhakhoakim.com/wp-content/uploads/2024/05/YoutubeShort-FN-new_thai-nguyen-01.jpg" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                </div>
+
+                <span class="u-media-player__icon u-media-player__icon--box-shadow" style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);width:3rem;height:3rem;background-color:#ffffff1c">
+                    <span class="fas fa-play u-media-player__icon-inner"></span>
+                </span>
+            </a>
+        </article>
+
+        <article class="mb-2 p-1 transition-3d-hover col-md-3 col-sm-6 col-lg-3 col-6">
+            <a class="p-0 u-media-player" title="[Short] Video khách hàng Gia Phúc" href="javascript:void(0)" onclick="return changeVideoRepresent(this,'/shorts/CdLPwHL2D5I','[Short] Video khách hàng Gia Phúc')">
+                <div class="p-0">
+                    <img class="card-img img-fluid lazy-load" width="54" height="96" src="https://nhakhoakim.com/wp-content/uploads/2024/04/YoutubeShort-FN-nieng-gia-phuc-01.jpg" alt="[Short] Video khách hàng Gia Phúc" data-src="https://nhakhoakim.com/wp-content/uploads/2024/04/YoutubeShort-FN-nieng-gia-phuc-01.jpg" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                </div>
+
+                <span class="u-media-player__icon u-media-player__icon--box-shadow" style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);width:3rem;height:3rem;background-color:#ffffff1c">
+                    <span class="fas fa-play u-media-player__icon-inner"></span>
+                </span>
+            </a>
+        </article>
+
+        <article class="mb-2 p-1 transition-3d-hover col-md-3 col-sm-6 col-lg-3 col-6">
+            <a class="p-0 u-media-player" title="[Short] Video khách hàng Thanh Hương" href="javascript:void(0)" onclick="return changeVideoRepresent(this,'shorts/3JPuZm-IR5E','[Short] Video khách hàng Thanh Hương')">
+                <div class="p-0">
+                    <img class="card-img img-fluid lazy-load" width="54" height="96" src="https://nhakhoakim.com/wp-content/uploads/2024/04/YoutubeShort-FN-new_thanh-huong-01.jpg" alt="[Short] Video khách hàng Thanh Hương" data-src="https://nhakhoakim.com/wp-content/uploads/2024/04/YoutubeShort-FN-new_thanh-huong-01.jpg" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                </div>
+
+                <span class="u-media-player__icon u-media-player__icon--box-shadow" style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);width:3rem;height:3rem;background-color:#ffffff1c">
+                    <span class="fas fa-play u-media-player__icon-inner"></span>
+                </span>
+            </a>
+        </article>
+
+        <article class="mb-2 p-1 transition-3d-hover col-md-3 col-sm-6 col-lg-3 col-6">
+            <a class="p-0 u-media-player" title="[Short] Video Khách hàng Tú Tri" href="javascript:void(0)" onclick="return changeVideoRepresent(this,'shorts/cHFiXgia-kc?si=8G52nhbnNq8_YrNg','[Short] Video Khách hàng Tú Tri')">
+                <div class="p-0">
+                    <img class="card-img img-fluid lazy-load" width="54" height="96" src="https://nhakhoakim.com/wp-content/uploads/2024/03/YoutubeShort-FN-04-scaled.jpg" alt="[Short] Video Khách hàng Tú Tri" data-src="https://nhakhoakim.com/wp-content/uploads/2024/03/YoutubeShort-FN-04-scaled.jpg" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                </div>
+
+                <span class="u-media-player__icon u-media-player__icon--box-shadow" style="position:absolute;left:50%;top:50%;transform: translate(-50%, -50%);width:3rem;height:3rem;background-color:#ffffff1c">
+                    <span class="fas fa-play u-media-player__icon-inner"></span>
+                </span>
+            </a>
+        </article>
+
+
+    </div>
+
+
+</div>
+<!-- Customer comments End -->
+<!--CongNgheDocQuyen Start-->
+<div class="container">
+    <div class="text-center">
+        <h2 class="text-dark mb-5">Công nghệ độc quyền tại Nha Khoa Kim</h2>
+        <div class="fl-html">
+            <i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i><i class="fa fa-circle" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="row" style="border:1px solid #f9f9f9 !important;padding:15px 0;background-color:#ffffff;box-shadow:0px 10px 24px 6px rgb(0 0 0 / 6%);margin-bottom:20px;">
+        <article class="col-md-4 col-sm-4 col-lg-4 transition-3d-hover col-12">
+            <div class="card border-0">
+                <a title="Công nghệ trồng răng Implant SAFEST nhanh tại Nha Khoa Kim" href="https://nhakhoakim.com/cong-nghe-cay-implant-safest-nhanh-tai-nha-khoa-kim.html">
+                    <img class="card-img img-fluid lazy-load" width="350" height="197" style="max-height:230px" data-src="https://nhakhoakim.com/wp-content/uploads/2023/07/photo_2024-04-24_17-16-00-555x312.jpg" src="https://nhakhoakim.com/wp-content/uploads/2023/07/photo_2024-04-24_17-16-00-555x312.jpg" alt="Công nghệ trồng răng Implant SAFEST nhanh tại Nha Khoa Kim" data-srcset="" data-sizes="" data-style="max-height:230px" data-l="" srcset="" sizes="">
+                    <h6 class="h6 py-1 card-text-dark"><span class="hide-mobile">Công nghệ trồng răng Implant SAFEST nhanh tại Nha Khoa Kim</span></h6>
+                </a>
+            </div>
+        </article>
+        <article class="col-md-4 col-sm-4 col-lg-4 transition-3d-hover col-12">
+            <div class="card border-0">
+                <a title="Răng sứ thẩm mỹ công nghệ Swift Perfect: Khỏe đẹp hoàn hảo - Bảo tồn răng thật" href="https://nhakhoakim.com/rang-su-tham-my-cong-nghe-swift-perfect-khoe-dep-hoan-hao-bao-ton-rang-that.html">
+                    <img class="card-img img-fluid lazy-load" width="350" height="197" style="max-height:230px" data-src="https://nhakhoakim.com/wp-content/uploads/2024/04/photo_2024-04-24_17-16-05-555x312.jpg" src="https://nhakhoakim.com/wp-content/uploads/2024/04/photo_2024-04-24_17-16-05-555x312.jpg" alt="Răng sứ thẩm mỹ công nghệ Swift Perfect: Khỏe đẹp hoàn hảo - Bảo tồn răng thật" data-srcset="" data-sizes="" data-style="max-height:230px" data-l="" srcset="" sizes="">
+                    <h6 class="h6 py-1 card-text-dark"><span class="hide-mobile">Răng sứ thẩm mỹ công nghệ Swift Perfect: Khỏe đẹp hoàn hảo - Bảo tồn răng thật</span></h6>
+                </a>
+            </div>
+        </article>
+        <article class="col-md-4 col-sm-4 col-lg-4 transition-3d-hover col-12">
+            <div class="card border-0">
+                <a title="Niềng răng công nghệ Optimal Align: Tối ưu hiệu quả - Cười đẹp tự tin" href="https://nhakhoakim.com/nieng-rang-cong-nghe-optimal-align-toi-uu-hieu-qua-cuoi-dep-tu-tin.html">
+                    <img class="card-img img-fluid lazy-load" width="350" height="197" style="max-height:230px" data-src="https://nhakhoakim.com/wp-content/uploads/2024/04/photo_2024-04-24_17-15-55-555x312.jpg" src="https://nhakhoakim.com/wp-content/uploads/2024/04/photo_2024-04-24_17-15-55-555x312.jpg" alt="Niềng răng công nghệ Optimal Align: Tối ưu hiệu quả - Cười đẹp tự tin" data-srcset="" data-sizes="" data-style="max-height:230px" data-l="" srcset="" sizes="">
+                    <h6 class="h6 py-1 card-text-dark"><span class="hide-mobile">Niềng răng công nghệ Optimal Align: Tối ưu hiệu quả - Cười đẹp tự tin</span></h6>
+                </a>
+            </div>
+        </article>
+    </div>
+</div>
+
+
+<!--CongNgheDocQuyen End-->
+<!---->
+
+<div class="footer-logo space-2">
+    <div class="bg-blue-default">
+        <h1 style="padding:5px 0;text-transform: uppercase;font-weight:bold" class="h1 text-dark mb-5 text-center text-white">Nha Khoa Tiêu Chuẩn Chất lượng</h1>
+    </div>
+    <div class="container">
+        <div class="js-slick-carousel u-slick slick-initialized slick-slider" data-autoplay="true" data-speed="4000" data-infinite="true" data-slides-show="4" data-responsive="[{            &quot;breakpoint&quot;: 1200,            &quot;settings&quot;: {              &quot;slidesToShow&quot;: 4            }          }, {            &quot;breakpoint&quot;: 992,            &quot;settings&quot;: {              &quot;slidesToShow&quot;: 4            }          }, {            &quot;breakpoint&quot;: 768,            &quot;settings&quot;: {              &quot;slidesToShow&quot;: 3            }          }, {            &quot;breakpoint&quot;: 576,            &quot;settings&quot;: {              &quot;slidesToShow&quot;: 2            }          }, {            &quot;breakpoint&quot;: 480,            &quot;settings&quot;: {              &quot;slidesToShow&quot;: 2            }          }]">
+
+            <div class="slick-list draggable">
+                <div class="slick-track" style="opacity: 1; width: 2550px; transform: translate3d(-1190px, 0px, 0px);">
+                    <div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="-3" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-02.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-02.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="-2" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-03.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-03.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="-1" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/chungnhanHarvard.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/chungnhanHarvard.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide" style="width: 170px;" tabindex="-1" data-slick-index="0" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-08.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-08.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide" style="width: 170px;" tabindex="-1" data-slick-index="1" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-06.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-06.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide" style="width: 170px;" tabindex="-1" data-slick-index="2" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-01.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-01.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide" style="width: 170px;" tabindex="-1" data-slick-index="3" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-02.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-02.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-current slick-active" style="width: 170px;" tabindex="0" data-slick-index="4" aria-hidden="false">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="0">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-03.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-03.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-active" style="width: 170px;" tabindex="0" data-slick-index="5" aria-hidden="false">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="0">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/chungnhanHarvard.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/chungnhanHarvard.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned slick-active" style="width: 170px;" tabindex="-1" data-slick-index="6" aria-hidden="false">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="0">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-08.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-08.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="7" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-06.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-06.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="8" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-01.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-01.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="9" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-02.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-02.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="10" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-03.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/ChungNhan-03.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div><div class="js-slide px-3 slick-slide slick-cloned" style="width: 170px;" tabindex="-1" data-slick-index="11" aria-hidden="true">
+                        <a href="https://nhakhoakim.com/tieu-chuan-chat-luong" class="text-center" tabindex="-1">
+                            <img width="246" height="295" class="img-fluid mx-auto" src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/chungnhanHarvard.png" data-src="https://nhakhoakim.com/wp-content/themes/kimdental-child/assets/images/chung-nhan/chungnhanHarvard.png" data-srcset="" data-sizes="" data-style="" style="" data-l="" srcset="" sizes="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!---->
+
+@section Scripts
+{
+    <script src="~/Content/theme/js/slick.js"></script>
+    <script src="~/Content/theme/js/script.js"></script>
+} 

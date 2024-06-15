@@ -1,0 +1,546 @@
+﻿@using BELibrary.Core.Utils
+@using HospitalManagement.Areas.Admin.Authorization
+@{
+    var baseURL = "/Areas/Admin/Content";
+    var client = CookiesManage.GetUser();
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="~/Content/theme/img/icon.png" rel="icon">
+
+    <title>Admin | @(ViewBag.Title ?? "Trang quản trị")</title>
+
+    <!--STYLESHEET-->
+    <!--=================================================-->
+    <!--Open Sans Font [ OPTIONAL ]-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <link href="@baseURL/css/bootstrap.min.css" rel="stylesheet" />
+    <!--Bootstrap Stylesheet [ REQUIRED ]-->
+    <link href="@baseURL/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--Nifty Stylesheet [ REQUIRED ]-->
+    <link href="@baseURL/css/nifty.min.css" rel="stylesheet">
+
+    <!--Nifty Premium Icon [ DEMONSTRATION ]-->
+    <link href="@baseURL/css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+
+    <!--Select2 [ OPTIONAL ]-->
+    <link href="@baseURL/plugins/select2/css/select2.min.css" rel="stylesheet">
+
+    <!--Spinkit [ OPTIONAL ]-->
+    <link href="@baseURL/plugins/spinkit/css/spinkit.min.css" rel="stylesheet">
+
+    <!--=================================================-->
+    <!--Pace - Page Load Progress Par [OPTIONAL]-->
+    <link href="@baseURL/plugins/pace/pace.min.css" rel="stylesheet">
+
+    <script src="@baseURL/plugins/pace/pace.min.js"></script>
+
+    <!--Demo [ DEMONSTRATION ]-->
+    <link href="@baseURL/css/demo/nifty-demo.min.css" rel="stylesheet">
+
+    <!--Font Awesome [ OPTIONAL ]-->
+    <link href="@baseURL/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!--=================================================
+
+    REQUIRED
+    You must include this in your project.
+
+    RECOMMENDED
+    This category must be included but you may modify which plugins or components which should be included in your project.
+
+    OPTIONAL
+    Optional plugins. You may choose whether to include it in your project or not.
+
+    DEMONSTRATION
+    This is to be removed, used for demonstration purposes only. This category must not be included in your project.
+
+    SAMPLE
+    Some script samples which explain how to initialize plugins or components. This category should not be included in your project.
+
+    Detailed information and more samples can be found in the document.
+
+    =================================================-->
+    <style>
+        .fade-loading {
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100000
+        }
+
+        .floating-container {
+            z-index: 100001
+        }
+
+        .pad-5 {
+            padding: 5px;
+        }
+
+        .mg-5-2 {
+            margin: 5px 2px;
+        }
+
+        .mg-t-b-35-50 {
+            margin-top: 35px;
+            margin-bottom: 50px;
+        }
+
+        #cinema-form input, #cinema-form select {
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            color: black !important;
+            font-size: 14px !important;
+        }
+
+        .brand-name {
+            color: #FFFFFF;
+        }
+    </style>
+    @RenderSection("CSS", required: false)
+</head>
+
+<!--TIPS-->
+<!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+<body>
+    <div id="container" class="effect aside-float aside-bright mainnav-lg">
+
+        <!--NAVBAR-->
+        <!--===================================================-->
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+
+                <!--Brand logo & name-->
+                <!--================================-->
+                <div class="navbar-header">
+                    <a href="/admin" class="navbar-brand" style="text-align: center;">
+                        <img src="~/Content/theme/img/logoNhaKhoaKim.jpg" alt="Nifty Logo" class="brand-icon" style="float: none; display: inline-block; width: 40px; height: 40px; margin-top: 15px;">
+                        <h3 class="text-white m-0 brand-name" style="display: inline-block; vertical-align: middle;">Nha Khoa Kim</h3>
+                    </a>
+                </div>
+                <!--================================-->
+                <!--End brand logo & name-->
+                <!--Navbar Dropdown-->
+                <!--================================-->
+                <div class="navbar-content">
+                    <ul class="nav navbar-top-links">
+
+                        <!--Navigation toogle button-->
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <li class="tgl-menu-btn">
+                            <a class="mainnav-toggle" href="#">
+                                <i class="demo-pli-list-view"></i>
+                            </a>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End Navigation toogle button-->
+                    </ul>
+                    <ul class="nav navbar-top-links">
+                        <li>
+                            <a href="/" target="_blank">
+                                <i class="demo-pli-home"></i>
+                            </a>
+                        </li>
+                        <li id="dropdown-user" class="dropdown">
+                            <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                                <span class="ic-user pull-right">
+                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                    <!--You can use an image instead of an icon.-->
+                                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                    <i class="demo-pli-male"></i>
+                                </span>
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                                <!--You can also display a user name in the navbar.-->
+                                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right panel-default">
+                                <ul class="head-list">
+                                    <li>
+                                        <a href="/admin/profile"  ><i class="demo-pli-male icon-lg icon-fw"></i> Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Admin/Login/logout"><i class="demo-pli-unlock icon-lg icon-fw"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                        <!--End user dropdown-->
+                    </ul>
+                </div>
+                <!--================================-->
+                <!--End Navbar Dropdown-->
+            </div>
+        </header>
+        <!--===================================================-->
+        <!--END NAVBAR-->
+
+        <div class="boxed">
+
+            <!--CONTENT CONTAINER-->
+            <!--===================================================-->
+            <div id="content-container">
+                <div id="page-head">
+                    <!--Page Title-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <div id="page-title">
+                        <h1 class="page-header text-overflow">@ViewBag.Feature</h1>
+                    </div>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End page title-->
+                    <!--Breadcrumb-->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="demo-pli-home"></i></a></li>
+                        <li><a href="@ViewBag.BaseURL">@ViewBag.Element</a></li>
+                        <li class="active">@ViewBag.Feature</li>
+                    </ol>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!--End breadcrumb-->
+                </div>
+                <!--Page content-->
+                <!--===================================================-->
+                <div id="page-content">
+
+                    @RenderBody()
+                </div>
+                <!--===================================================-->
+                <!--End page content-->
+            </div>
+            <!--===================================================-->
+            <!--END CONTENT CONTAINER-->
+            <!--MAIN NAVIGATION-->
+            <!--===================================================-->
+            <nav id="mainnav-container">
+                <div id="mainnav">
+                    <!--OPTIONAL : ADD YOUR LOGO TO THE NAVIGATION-->
+                    <!--It will only appear on small screen devices.-->
+                    <!--================================
+                    -->
+                    <!--Menu-->
+                    <!--================================-->
+                    <div id="mainnav-menu-wrap">
+                        <div class="nano">
+                            <div class="nano-content">
+                                <!--Profile Widget-->
+                                <!--================================-->
+                                <div id="mainnav-profile" class="mainnav-profile">
+                                    <div class="profile-wrap text-center">
+                                        <a href="#profile-nav" class="box-block" data-toggle="collapse" aria-expanded="false">
+                                            <span class="pull-right dropdown-toggle">
+                                                <i class="dropdown-caret"></i>
+                                            </span>
+                                            <p class="mnp-name"> @client.FullName</p>
+                                        </a>
+                                    </div>
+                                    <div id="profile-nav" class="collapse list-group bg-trans">
+                                        <a href="/admin/profile" class="list-group-item">
+                                            <i class="demo-pli-male icon-lg icon-fw"></i> View Profile
+                                        </a>
+                                        <a href="/Admin/Login/logout" class="list-group-item">
+                                            <i class="demo-pli-unlock icon-lg icon-fw"></i> Logout
+                                        </a>
+                                    </div>
+                                </div>
+                                <!--================================-->
+                                <!--End shortcut buttons-->
+                                @if (client.Role != RoleKey.Doctor)
+                                {
+                                    <ul id="mainnav-menu" class="list-group">
+
+                                        <!--Category name-->
+                                        <li class="list-header">Quản lý</li>
+
+                                        <!--Menu list item-->
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-home"></i>
+                                                <span class="menu-title">Bảng điều khiển</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("dashboard")? "collapse in" : "collapse")">
+                                                <li><a href="/">Trang chủ</a></li>
+                                                <li><a href="/admin">Trang quản trị</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-calendar-4"></i>
+                                                <span class="menu-title">Đặt lịch</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("doctorschedule")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/DoctorSchedule">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-male"></i>
+                                                <span class="menu-title">Bệnh nhân</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("patient")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/patient/all">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-file-word"></i>
+                                                <span class="menu-title">Điều trị</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("patientrecord")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/patientRecord">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-repair"></i>
+                                                <span class="menu-title">Khoa</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("faculty")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/faculty">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-file"></i>
+                                                <span class="menu-title">Danh mục</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("category")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/category">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-gear"></i>
+                                                <span class="menu-title">Dịch vụ</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("service")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/service">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user-md"></i>
+                                                <span class="menu-title">Bác sĩ</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("doctor")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/doctor">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user"></i>
+                                                <span class="menu-title">Tài khoản</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("account")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/account?role=@RoleKey.Admin">TK quản trị</a></li>
+                                            </ul>
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("account")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/account?role=@RoleKey.Doctor">TK bác sĩ</a></li>
+                                            </ul>
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("account")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/account?role=@RoleKey.Patient">TK bệnh nhân</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-bar-chart"></i>
+                                                <span class="menu-title">Thống kê</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("statistical")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/statistical">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <ul id="mainnav-menu" class="list-group">
+
+                                        <!--Category name-->
+                                        <li class="list-header">System</li>
+
+                                        <!--Menu list item-->
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-home"></i>
+                                                <span class="menu-title">Bảng điều khiển</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("dashboard")? "collapse in" : "collapse")">
+                                                <li><a href="/">Trang chủ</a></li>
+                                                <li><a href="/admin">Trang quản trị</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-calendar-4"></i>
+                                                <span class="menu-title">Đặt lịch</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("doctorschedule")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/DoctorSchedule">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-male"></i>
+                                                <span class="menu-title">Bệnh nhân</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("patient")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/patient/all">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="demo-pli-file-word"></i>
+                                                <span class="menu-title">Điều trị</span>
+                                                <i class="arrow"></i>
+                                            </a>
+
+                                            <!--Submenu-->
+                                            <ul class="@(ViewContext.RouteData.Values["controller"].ToString().ToLower().Equals("patientrecord")? "collapse in" : "collapse")">
+                                                <li><a href="/admin/patientRecord">Danh sách</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <!--================================-->
+                    <!--End menu-->
+                </div>
+            </nav>
+            <!--===================================================-->
+            <!--END MAIN NAVIGATION-->
+        </div>
+
+        <!-- FOOTER -->
+        <!--===================================================-->
+        <footer id="footer">
+
+            <!-- Visible when footer positions are fixed -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- Visible when footer positions are static -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!--<div class="hide-fixed pull-right pad-rgt">
+                Design by &#0169;  @DateTime.UtcNow.AddHours(7).ToString("dd/MM/yyyy HH:mm")
+            </div>-->
+
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+            <!-- Remove the class "show-fixed" and "hide-fixed" to make the content always appears. -->
+            <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+            <!--<p class="pad-lft">&#0169; @DateTime.Now.Year</p>-->
+        </footer>
+        <!--===================================================-->
+        <!-- END FOOTER -->
+        <!-- SCROLL PAGE BUTTON -->
+        <!--===================================================-->
+        <button class="scroll-top btn">
+            <i class="pci-chevron chevron-up"></i>
+        </button>
+        <!--===================================================-->
+    </div>
+    <!--===================================================-->
+    <!-- END OF CONTAINER -->
+    <!--JAVASCRIPT-->
+    <!--=================================================-->
+    <!--jQuery [ REQUIRED ]-->
+    <script src="@baseURL/js/jquery.min.js"></script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="@baseURL/js/bootstrap.min.js"></script>
+
+    <!--Select2 [ OPTIONAL ]-->
+    <script src="@baseURL/plugins/select2/js/select2.min.js"></script>
+
+    <!--Masked Input [ OPTIONAL ]-->
+    <script src="@baseURL/plugins/masked-input/jquery.maskedinput.min.js"></script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="@baseURL/plugins/ckeditor/ckeditor.js"></script>
+
+    <!--BootstrapJS [ RECOMMENDED ]-->
+    <script src="@baseURL/plugins/ckfinder/ckfinder.js"></script>
+
+    <!--NiftyJS [ RECOMMENDED ]-->
+    <script src="@baseURL/js/nifty.min.js"></script>
+
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <script src="@baseURL/plugins/bootstrap-validator/bootstrapValidator.min.js"></script>
+
+    <!--Bootstrap Validator [ OPTIONAL ]-->
+    <script src="@baseURL/plugins/bootbox/bootbox.min.js"></script>
+
+    <!--=================================================-->
+    <!--Ajax Request-->
+    <script src="@baseURL/js/base/ajax.js"></script>
+    <!-- notify -->
+    <script src="@baseURL/js/base/notify.js"></script>
+    <!-- validate -->
+    <script src="@baseURL/js/base/validate.js"></script>
+    <!-- form-->
+    <script src="@baseURL/js/base/form.js"></script>
+    <!-- mess-->
+    <script src="~/Areas/Admin/Content/js/base/mess.js"></script>
+    <!-- config-->
+    <script src="~/Areas/Admin/Content/js/base/config.js"></script>
+    <!-- Include scripts -->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model BELibrary.Entity.Doctor
+
+<div class="breadcrumb-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Hồ sơ</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="doctor-widget">
+                    <div class="doc-info-left">
+                        <div class="doctor-img">
+                            <img src="@Model.Avatar" class="img-fluid" alt="User Image">
+                        </div>
+                        <div class="doc-info-cont">
+                            <h4 class="doc-name">@Model.Name</h4>
+                            @*<p class="doc-speciality">@Model.Descriptions</p>*@
+                        </div>
+                    </div>
+                    <div class="doc-info-right">
+                        <div class="clini-infos">
+                            <ul>
+                                <li><i class="fas fa-map-marker-alt"></i> @Model.Address</li>
+                                <li><i class="fas fa-phone-alt"></i> @Model.Phone</li>
+                            </ul>
+                        </div>
+                        <div class="clinic-booking">
+                            <a class="apt-btn" href="javascript:void(0)" onclick="bookNow('@Model.Id')">Đặt lịch hẹn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body pt-0">
+
+                <nav class="user-tabs mb-4">
+                    <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#doc_overview" data-toggle="tab">Thông tin chi tiết</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#doc_business_hours" data-toggle="tab">Thời gian làm việc</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content pt-0">
+
+                    <div role="tabpanel" id="doc_overview" class="tab-pane fade show active">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-9">
+                                <div class="widget about-widget">
+                                    <h4 class="widget-title"></h4>
+                                    <p class="doc-speciality">@Model.Descriptions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" id="doc_business_hours" class="tab-pane fade">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-3">
+                                <div class="widget business-widget">
+                                    <div class="widget-content">
+                                        <div class="listing-hours">
+                                            <div class="listing-day current">
+                                                <div class="time-items">
+                                                    <span class="time"><span class="badge bg-success-light">Open</span></span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Monday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 20:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Tuesday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 20:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Wednesday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 20:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Thursday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 20:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Friday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 20:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Saturday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 20:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day">
+                                                <div class="day">Sunday</div>
+                                                <div class="time-items">
+                                                    <span class="time">08:00 AM - 16:00 PM</span>
+                                                </div>
+                                            </div>
+                                            <div class="listing-day closed">
+                                                <div class="day">Holiday</div>
+                                                <div class="time-items">
+                                                    <span class="time"><span class="badge bg-danger-light">Closed</span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
